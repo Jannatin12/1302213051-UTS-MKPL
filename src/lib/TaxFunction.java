@@ -5,6 +5,9 @@ public class TaxFunction {
 	public static int calculateTax(int monthlySalary, int otherMonthlyIncome, int numberOfMonthWorking, int deductible,
 			boolean isMarried, int numberOfChildren) {
 
+		final int BASIC_DEDUCTIBLE = 54000000;
+		final int CHILD_DEDUCTIBLE_PER_CHILD = 1500000;
+
 		int tax = 0;
 		int totalIncome = (monthlySalary + otherMonthlyIncome) * numberOfMonthWorking;
 		int totalDeductible;
@@ -18,11 +21,10 @@ public class TaxFunction {
 			numberOfChildren = 3;
 		}
 
+		totalDeductible = deductible + BASIC_DEDUCTIBLE;
 
 		if (isMarried) {
-			totalDeductible = deductible + 58500000 + (numberOfChildren * 1500000);
-		} else {
-			totalDeductible = deductible + 54000000;
+			totalDeductible += numberOfChildren * CHILD_DEDUCTIBLE_PER_CHILD;
 		}
 
 		tax = (int) Math.round(0.05 * (totalIncome - totalDeductible));
