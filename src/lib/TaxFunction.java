@@ -13,9 +13,11 @@ public class TaxFunction {
 			System.err.println("More than 12 month working per year");
 		}
 
+
 		if (numberOfChildren > 3) {
 			numberOfChildren = 3;
 		}
+
 
 		if (isMarried) {
 			totalDeductible = deductible + 58500000 + (numberOfChildren * 1500000);
@@ -30,6 +32,7 @@ public class TaxFunction {
 		} else {
 			return tax;
 		}
+
 
 	}
 
