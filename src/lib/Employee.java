@@ -44,32 +44,6 @@ public class Employee {
 		
 		children = new LinkedList<>();
 	}
-
-	public class Child {
-		private String name;
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		private String idNumber;
-		
-		public String getIdNumber() {
-			return idNumber;
-		}
-
-		public void setIdNumber(String idNumber) {
-			this.idNumber = idNumber;
-		}
-
-		public Child(String name, String idNumber) {
-			this.name = name;
-			this.idNumber = idNumber;
-		}
-	}
 	
 	/**
 	 * Fungsi untuk menentukan gaji bulanan pegawai berdasarkan grade kepegawaiannya (grade 1: 3.000.000 per bulan, grade 2: 5.000.000 per bulan, grade 3: 7.000.000 per bulan)
@@ -125,4 +99,30 @@ public class Employee {
 		
 		return TaxFunction.calculateTax(monthlySalary, otherMonthlyIncome, monthWorkingInYear, annualDeductible, spouseIdNumber.equals(""), children.size());
 	}
+
+	public static class Child {
+        private String name;
+        private String idNumber;
+
+        public Child(String name, String idNumber) {
+            this.name = name;
+            this.idNumber = idNumber;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getIdNumber() {
+            return idNumber;
+        }
+
+        public void setIdNumber(String idNumber) {
+            this.idNumber = idNumber;
+        }
+    }
 }
